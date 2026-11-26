@@ -1,0 +1,214 @@
+.st-stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+}
+.st-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 18px 20px;
+    border-radius: 10px;
+    background: var(--color-white);
+    border: 1px solid rgba(0, 74, 159, 0.15);
+    box-shadow: 0 8px 32px rgba(0, 30, 80, 0.06);
+    color: var(--color-text);
+    transition: border-color 0.3s;
+}
+a.st-stat:hover {
+    border-color: var(--color-primary);
+}
+.st-stat strong {
+    font-size: 28px;
+    font-weight: 900;
+    color: var(--color-primary);
+}
+.st-stat span {
+    font-size: 13px;
+    font-weight: 700;
+    color: #7d7d7d;
+}
+.st-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 12px 20px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+}
+.st-count {
+    font-size: 13px;
+    font-weight: 700;
+    color: #7d7d7d;
+}
+.st-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 640px;
+}
+.st-table th {
+    padding: 12px 14px;
+    background: var(--color-primary);
+    color: var(--color-white);
+    font-size: 12px;
+    font-weight: 800;
+    text-align: left;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+.st-table td {
+    padding: 14px;
+    border-top: 1px solid #e6edf6;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-text);
+    vertical-align: top;
+}
+.st-row:hover td {
+    background: #f7f9fc;
+}
+.st-table .st-num {
+    text-align: right;
+}
+.st-num strong {
+    font-size: 16px;
+    color: var(--color-primary);
+}
+.st-name {
+    display: block;
+    font-weight: 800;
+    overflow-wrap: anywhere;
+}
+.st-sub {
+    display: block;
+    margin-top: 2px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #7d7d7d;
+    overflow-wrap: anywhere;
+}
+.st-link {
+    display: block;
+    color: var(--color-primary);
+}
+.st-link:hover {
+    text-decoration: underline;
+}
+.st-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 800;
+    color: #2F855A;
+    background: #E6F4EC;
+    white-space: nowrap;
+}
+.st-badge.away {
+    color: #B7791F;
+    background: #FDF3E1;
+}
+.st-badge.pending {
+    color: var(--color-primary);
+    background: #E8F0FA;
+}
+a.st-badge.pending:hover {
+    text-decoration: underline;
+}
+.st-empty {
+    margin-top: 16px;
+    padding: 30px 18px;
+    border-radius: 10px;
+    border: 1px dashed rgba(0, 74, 159, 0.3);
+    text-align: center;
+    font-size: 15px;
+    font-weight: 700;
+    color: #7d7d7d;
+}
+.st-empty[hidden] {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .st-stats {
+        gap: 10px;
+    }
+    .st-stat {
+        padding: 14px;
+    }
+    .st-stat strong {
+        font-size: 22px;
+    }
+    .st-col-hide {
+        display: none;
+    }
+    .st-table {
+        min-width: 520px;
+    }
+}
+
+@media (max-width: 480px) {
+    .st-stats {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .st-table {
+        min-width: 0;
+    }
+    .st-table thead {
+        display: none;
+    }
+    .st-table, .st-table tbody, .st-table tr, .st-table td {
+        display: block;
+        width: 100%;
+    }
+    .st-table tr + tr {
+        border-top: 1px solid #e6edf6;
+    }
+    .st-table tr {
+        padding: 12px 16px;
+    }
+    .st-table td {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr);
+        column-gap: 12px;
+        align-items: start;
+        padding: 5px 0;
+        border-top: none;
+        text-align: right;
+    }
+    .st-table td:not(:first-child) > * {
+        grid-column: 2;
+        justify-self: end;
+    }
+    .st-table td::before {
+        content: attr(data-label);
+        grid-row: 1 / span 4;
+        font-size: 12px;
+        font-weight: 700;
+        color: #7d7d7d;
+        text-align: left;
+    }
+    .st-table td:first-child {
+        display: block;
+        padding-bottom: 8px;
+        text-align: left;
+    }
+    .st-table td:first-child::before {
+        content: none;
+    }
+    .st-table .st-col-hide {
+        display: grid;
+    }
+    .st-table .ge-num {
+        text-align: right;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .st-stat {
+        transition: none;
+    }
+}

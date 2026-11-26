@@ -1,0 +1,47 @@
+
+.basicinfo {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 20px;
+    column-gap: 30px;
+    margin-bottom: 50px;
+}
+
+.contactinfo, .changepass {
+    display: grid;
+    gap: 20px;
+}
+.contactinfo {
+    margin-bottom: 50px;
+}
+.contactinfo button[type="submit"], .changepass button[type="submit"] {
+    background: var(--color-primary);
+    border: none;
+    width: max-content;
+    padding: 10px 100px;
+    color: var(--color-white);
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+.contactinfo button[type="submit"]:hover, .changepass button[type="submit"]:hover {
+    background: var(--color-primary-dark);
+}
+.contactinfo button[type="submit"]:disabled, .changepass button[type="submit"]:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+@media (max-width: 640px) {
+    .basicinfo {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .contactinfo button[type="submit"], .changepass button[type="submit"] {
+        width: 100%;
+        padding: 12px 20px;
+    }
+}

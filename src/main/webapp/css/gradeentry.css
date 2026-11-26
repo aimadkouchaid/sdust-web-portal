@@ -1,0 +1,225 @@
+.ge-empty {
+    padding: 30px 18px;
+    border-radius: 10px;
+    border: 1px dashed rgba(0, 74, 159, 0.3);
+    text-align: center;
+    font-size: 15px;
+    font-weight: 700;
+    color: #7d7d7d;
+}
+.ge-notice {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    border-left: 4px solid #B7791F;
+    background: #FDF3E1;
+    font-size: 14px;
+    font-weight: 700;
+    color: #7B4F12;
+}
+.ge-notice svg {
+    flex-shrink: 0;
+}
+.ge-table {
+    width: 100%;
+    min-width: 620px;
+    border-collapse: collapse;
+}
+.ge-table th {
+    padding: 12px 14px;
+    background: var(--color-primary);
+    color: var(--color-white);
+    font-size: 12px;
+    font-weight: 800;
+    text-align: left;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+.ge-table td {
+    padding: 12px 14px;
+    border-top: 1px solid #e6edf6;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-text);
+    vertical-align: top;
+}
+.ge-table .ge-num {
+    text-align: right;
+}
+.ge-row.done td {
+    background: #f7f9fc;
+}
+.ge-inputs {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+.ge-score, .ge-level {
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 2px solid #004a9f40;
+    background: var(--color-white);
+    font: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--color-text);
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+.ge-score {
+    width: 90px;
+}
+.ge-score:focus, .ge-level:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px #004a9f1f;
+}
+.ge-score:disabled {
+    background: #f0f2f5;
+    color: #9a9a9a;
+}
+.ge-score.invalid {
+    border-color: #C53030;
+}
+.ge-cell .field-error {
+    margin-top: 4px;
+}
+.ge-final {
+    font-size: 15px;
+    color: var(--color-text);
+}
+.ge-point {
+    font-size: 15px;
+    color: var(--color-primary);
+}
+.ge-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 800;
+    color: #B7791F;
+    background: #FDF3E1;
+    white-space: nowrap;
+}
+.ge-badge.done {
+    color: #2F855A;
+    background: #E6F4EC;
+}
+.ge-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 12px 20px;
+    margin-top: 18px;
+}
+.ge-actions .form-status {
+    flex: 1;
+    margin: 0;
+}
+.ge-save {
+    padding: 10px 40px;
+    border: none;
+    border-radius: 6px;
+    background: var(--color-primary);
+    color: var(--color-white);
+    font: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+.ge-save:hover {
+    background: var(--color-primary-dark);
+}
+.ge-save.armed {
+    background: #B7791F;
+}
+.ge-save:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+@media (max-width: 480px) {
+    .ge-save {
+        width: 100%;
+    }
+}
+
+@media (max-width: 640px) {
+    .ge-table {
+        min-width: 0;
+    }
+    .ge-table thead {
+        display: none;
+    }
+    .ge-table, .ge-table tbody, .ge-table tr, .ge-table td {
+        display: block;
+        width: 100%;
+    }
+    .ge-table tr + tr {
+        border-top: 1px solid #e6edf6;
+    }
+    .ge-table tr {
+        padding: 12px 16px;
+    }
+    .ge-table td {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr);
+        column-gap: 12px;
+        align-items: start;
+        padding: 5px 0;
+        border-top: none;
+        text-align: right;
+    }
+    .ge-table td:not(:first-child) > * {
+        grid-column: 2;
+        justify-self: end;
+    }
+    .ge-table td::before {
+        content: attr(data-label);
+        grid-row: 1 / span 4;
+        font-size: 12px;
+        font-weight: 700;
+        color: #7d7d7d;
+        text-align: left;
+    }
+    .ge-table td:first-child {
+        display: block;
+        padding-bottom: 8px;
+        text-align: left;
+    }
+    .ge-table td:first-child::before {
+        content: none;
+    }
+    .ge-table .st-col-hide {
+        display: grid;
+    }
+    .ge-table .ge-num {
+        text-align: right;
+    }
+}
+
+@media (max-width: 640px) {
+    .ge-row.done td {
+        background: none;
+    }
+    .ge-row.done {
+        background: #f7f9fc;
+    }
+    .ge-inputs {
+        justify-content: flex-end;
+    }
+    .ge-cell .field-error {
+        text-align: right;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .ge-score, .ge-level, .ge-save {
+        transition: none;
+    }
+}

@@ -1,0 +1,80 @@
+body{
+    background: #eee;
+    background-image: radial-gradient(circle, #004a9f2d 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+.error-container {
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 16px;
+}
+.error-container::before{
+    content: attr(data-code);
+    position: absolute;
+    top: -0.667em;                        
+    font-size: clamp(150px, 40vw, 300px); 
+    line-height: normal;
+    font-weight: 900;
+    color: var(--color-primary);
+    opacity: 0.2;
+}
+.error-content {
+    text-align: center;
+}
+.error-content h1 {
+    font-size: clamp(28px, 6vw, 35px);
+    color: var(--color-primary);
+}
+.error-content p {
+    font-size: 16px;
+    margin: 30px 0;
+    line-height: 30px;
+    max-width: 550px;
+}
+
+
+.error-container::before {
+    animation:
+        error-drop 1s cubic-bezier(0.22, 1, 0.36, 1) backwards,
+        error-float 5s ease-in-out 1s infinite;
+}
+
+@keyframes error-drop {
+    from { opacity: 0; transform: translateY(-60px); }
+    to   { opacity: 0.2; transform: translateY(0); }
+}
+
+@keyframes error-float {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(15px); }
+}
+
+.error-content h1 {
+    animation: fade-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.3s backwards;
+}
+
+.error-content p {
+    animation: fade-up 0.8s ease 0.45s backwards;
+}
+
+.error-content .academic-btn {
+    animation: fade-up 0.8s ease 0.6s backwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .error-container::before,
+    .error-content * {
+        animation: none !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .error-content p {
+        font-size: 15px;
+        line-height: 26px;
+        margin: 22px 0;
+    }
+}

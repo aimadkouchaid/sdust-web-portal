@@ -1,0 +1,5 @@
+target/
+src/main/resources/db.properties
+CLAUDE.md
+deploy.sh
+.vscode/

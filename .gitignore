@@ -3,3 +3,5 @@ src/main/resources/db.properties
 CLAUDE.md
 deploy.sh
 .vscode/
+.DS_Store/
+.gitignore
